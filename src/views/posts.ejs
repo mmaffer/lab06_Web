@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media - Post</title>
+    <!-- Importar Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Iconos de Google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="grey lighten-4">
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-wrapper teal">
+            <a href="#!" class="brand-logo center">Social Media</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h4 class="center-align">Bienvenido a Social Media</h4>
+
+        <div class="row">
+            <% for (let i = 0; i < posts.length; i++) { 
+                const post = posts[i]; 
+                let delay = i * 0.1;
+                const animStyle = 'animation-delay: ' + delay + 's;';
+            %>
+                <div class="col s12 m6 l4 fade-in" style="<%= animStyle %>">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="<%= post.imageUrl || 'https://placehold.co/600x400?text=Sin+Imagen' %>"
+                                alt="Imagen del post" style="height: 200px; object-fit: cover;"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Sin+Imagen';">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">
+                                <%= post.title %>
+                            </span>
+                            <p>
+                                <%= post.content %>
+                            </p>
+                            <p style="margin-top: 10px;">
+                                <strong>Hashtags:</strong>
+                                <% if (post.hashtags && post.hashtags.length > 0) { %>
+                                    <% for (let j = 0; j < post.hashtags.length; j++) { 
+                                        const tag = post.hashtags[j]; 
+                                    %>
+                                        <span class="chip">#<%= tag %></span>
+                                    <% } %>
+                                <% } else { %>
+                                    <span class="grey-text text-lighten-1">Sin hashtags</span>
+                                <% } %>
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <div class="right" style="display: flex; gap: 10px;">
+                                <a href="/posts/edit/<%= post._id %>" class="btn-flat" style="padding: 0;"><i
+                                        class="material-icons teal-text">edit</i></a>
+                                <form action="/posts/delete/<%= post._id %>" method="POST" style="display: inline;"
+                                    onsubmit="return confirm('¿Estás seguro de eliminar este post?')">
+                                    <button type="submit" class="btn-flat" style="padding: 0;"><i
+                                            class="material-icons red-text">delete</i></button>
+                                </form>
+                            </div>
+                            <span><strong>Autor:</strong>
+                                <%= post.user ? post.user.name + ' ' + post.user.lastName : 'Desconocido' %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+            <% if (posts.length === 0) { %>
+                <div class="col s12 center-align">
+                    <p class="grey-text">No hay posts disponibles. ¡Sé el primero en publicar!</p>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- Botón flotante para nuevo post -->
+        <div class="fixed-action-btn">
+            <a href="/posts/new" class="btn-floating btn-large waves-effect waves-light teal">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Importar Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

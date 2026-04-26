@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #00b09b, #96c93d);
+    --surface-color: rgba(255, 255, 255, 0.9);
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #f0f4f8;
+    background-attachment: fixed;
+    color: #2d3436;
+}
+
+/* Navbar Premium */
+nav {
+    background: var(--primary-gradient) !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
+    height: 70px;
+    line-height: 70px;
+}
+
+.brand-logo {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Container spacing */
+.container {
+    padding-top: 30px;
+}
+
+/* Cards Modernas */
+.card {
+    border-radius: 20px !important;
+    overflow: hidden;
+    box-shadow: var(--card-shadow) !important;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    border: 1px solid var(--glass-border);
+    background: var(--surface-color);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.1) !important;
+}
+
+.card-image img {
+    height: 220px !important;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+.card:hover .card-image img {
+    filter: brightness(1.05);
+}
+
+.card-title {
+    font-weight: 600 !important;
+    color: #2d3436 !important;
+    font-size: 1.4rem !important;
+}
+
+.card-content {
+    padding: 24px !important;
+}
+
+.card-content p {
+    color: #636e72;
+    line-height: 1.6;
+}
+
+.card-action {
+    background: transparent !important;
+    border-top: 1px solid #eee !important;
+    padding: 15px 24px !important;
+}
+
+/* Chips / Hashtags */
+.chip {
+    background: #e1f5fe;
+    color: #0288d1;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.chip:hover {
+    background: #b3e5fc;
+}
+
+/* Floating Button */
+.fixed-action-btn .btn-large {
+    background: var(--primary-gradient) !important;
+    box-shadow: 0 4px 15px rgba(0, 176, 155, 0.4) !important;
+}
+
+/* Forms Premium */
+.input-field input:focus + label, 
+.input-field textarea:focus + label {
+    color: #00b09b !important;
+}
+
+.input-field input:focus, 
+.input-field textarea:focus {
+    border-bottom: 2px solid #00b09b !important;
+    box-shadow: 0 1px 0 0 #00b09b !important;
+}
+
+.btn.teal {
+    background: var(--primary-gradient) !important;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 30px;
+    box-shadow: 0 4px 15px rgba(0, 176, 155, 0.3);
+}
+
+.btn.teal:hover {
+    box-shadow: 0 6px 20px rgba(0, 176, 155, 0.4);
+    opacity: 0.9;
+}
+
+/* Transitions */
+.fade-in {
+    animation: fadeIn 0.6s ease-out both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive tweaks */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+}

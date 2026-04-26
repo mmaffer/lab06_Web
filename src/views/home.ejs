@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media - Home</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Iconos de Google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0d2137 0%, #0a3d62 40%, #00b09b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(150, 201, 61, 0.08) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            padding: 60px 50px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-card h2 {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, #00b09b, #96c93d) !important;
+            border-radius: 50px;
+            height: 55px;
+            line-height: 55px;
+            padding: 0 45px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: none;
+            box-shadow: 0 8px 25px rgba(0, 176, 155, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            box-shadow: 0 12px 35px rgba(0, 176, 155, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .hero-feature i {
+            color: #96c93d;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="hero-card fade-in">
+            <h2>Social Media 🚀</h2>
+            <p>Conectate, comparte y explora publicaciones en una plataforma moderna y colaborativa.</p>
+            
+            <a href="/posts" class="btn-large waves-effect waves-light hero-btn">
+                <i class="material-icons left">explore</i> Explorar Publicaciones
+            </a>
+
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="material-icons">create</i>
+                    <span>Crear posts</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="material-icons">edit</i>
+                    <span>Editar contenido</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="material-icons">people</i>
+                    <span>Comunidad</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
